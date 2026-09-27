@@ -2,7 +2,7 @@
 
 En komplett Windows-domänmiljö för ett fiktivt företag med kontor i Göteborg och Vetlanda. Miljön består av brandvägg, domänkontrollant med filserver, Exchange, Remote Desktop Services och en Windows-klient, och täcker allt från användare och behörigheter till e-post och fjärråtkomst till Office.
 
-> Grupprojekt (4 personer) inom utbildningen Moln- och virtualiseringsspecialist, Campus Mölndal.
+> Projekt inom utbildningen Moln- och virtualiseringsspecialist, Campus Mölndal.
 
 **Teknik:** Windows Server 2019 · Active Directory · DNS · Group Policy · Storage Spaces · Exchange Server 2019 · Remote Desktop Services · Office 2013 · pfSense · PowerShell
 
@@ -205,8 +205,12 @@ Outlook hittar Exchange automatiskt via Autodiscover, med A-poster för `autodis
 
 ## Vad jag lärde mig
 
-<!-- Skriv 3–5 meningar med egna ord. Frågor att utgå från:
-     Vad var nytt för dig? Vad var svårast, och hur löste ni det?
-     Vad skulle du göra annorlunda nästa gång? -->
 
-[Skriv dina egna reflektioner här.]
+
+Projektet visade hur mycket i en Windows-miljö som bygger på Active Directory och DNS. Filservern, Exchange och RDS fungerar bara om kontona i AD och namnuppslagningen är rätt, och saknas en DNS-post, en öppen port eller ett certifikat slutar e-posten att fungera.
+
+Jag lärde mig också värdet av en genomtänkt struktur. Med AGDLP och en tydlig namnstandard går det att hantera över 100 användare på två kontor, eftersom behörigheter styrs via grupper i stället för användare för användare.
+
+Felsökningen av IIS-felet visade att felet inte alltid ligger där det syns. Felmeddelandet handlade om IIS, men orsaken var att kontot saknade lokal administratörsbehörighet. Det har lärt mig att kontrollera behörigheter tidigt när något oväntat inte går att köra.
+
+Till sist såg jag nyttan med att planera ordningen innan man börjar: domänkontrollanten först, sedan filserver, Exchange och RDS, och sist klienten.
